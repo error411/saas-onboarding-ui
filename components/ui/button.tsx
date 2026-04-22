@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { ButtonHTMLAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 type ButtonVariant = "primary" | "secondary" | "light";
@@ -7,6 +7,12 @@ type ButtonSize = "sm" | "md";
 
 type ButtonLinkProps = ComponentPropsWithoutRef<typeof Link> & {
   children: ReactNode;
+  size?: ButtonSize;
+  variant?: ButtonVariant;
+};
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  isLoading?: boolean;
   size?: ButtonSize;
   variant?: ButtonVariant;
 };
@@ -41,5 +47,32 @@ export function ButtonLink({
     >
       {children}
     </Link>
+  );
+}
+
+export function Button({
+  children,
+  className,
+  disabled,
+  isLoading = false,
+  size = "md",
+  type = "button",
+  variant = "primary",
+  ...props
+}: ButtonProps) {
+  return (
+    <button
+      className={cn(
+        "inline-flex items-center justify-center rounded-md font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60",
+        sizeClasses[size],
+        variantClasses[variant],
+        className,
+      )}
+      disabled={disabled || isLoading}
+      type={type}
+      {...props}
+    >
+      {isLoading ? "Creating plan..." : children}
+    </button>
   );
 }

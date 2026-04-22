@@ -1,6 +1,9 @@
 # SaaS Onboarding UI
 
-A clean, production-ready starter for building modern SaaS onboarding flows with Next.js, TypeScript, and Tailwind CSS. The first screen models a focused onboarding product called OnboardKit while keeping the codebase small enough to reshape for real product work.
+A polished frontend project that demonstrates how I design and structure conversion-focused SaaS onboarding experiences.
+
+Built with Next.js, TypeScript, and Tailwind CSS, this project includes a responsive landing page, guided onboarding flow, and dashboard UI designed to feel like a real product rather than a generic template.# SaaS Onboarding UI
+
 
 ## Stack
 
@@ -9,6 +12,14 @@ A clean, production-ready starter for building modern SaaS onboarding flows with
 - Tailwind CSS
 - ESLint
 - React
+
+## What This Demonstrates
+
+- Product-focused frontend architecture
+- Responsive SaaS UI design
+- Reusable component structure
+- Clear onboarding UX patterns
+- Maintainable styling with shared UI primitives
 
 ## Getting Started
 

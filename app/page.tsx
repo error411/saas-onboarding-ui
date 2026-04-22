@@ -33,15 +33,15 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
               Focused onboarding
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl">
               Everything needed to guide a customer to value.
             </h2>
-            <p className="mt-4 text-base leading-7 text-muted">
+            <p className="mt-5 text-base leading-7 text-muted md:text-lg md:leading-8">
               Keep the early customer journey organized without adding another
               heavy process for your team to maintain.
             </p>
           </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
             {features.map((feature) => (
               <FeatureCard key={feature.title} {...feature} />
             ))}

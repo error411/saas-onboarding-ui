@@ -61,11 +61,11 @@ select {
 }
 
 .section-space {
-  padding-block: 4rem;
+  padding-block: 4.5rem;
 }
 
 @media (min-width: 768px) {
   .section-space {
-    padding-block: 6rem;
+    padding-block: 7rem;
   }
 }

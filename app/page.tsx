@@ -26,7 +26,7 @@ const features = [
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <SiteHeader />
       <HeroSection />
       <section className="section-space border-y border-border bg-card" id="features">

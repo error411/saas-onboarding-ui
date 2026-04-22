@@ -76,7 +76,14 @@ export function DashboardPreview() {
                           {launch.status}
                         </Badge>
                       </div>
-                      <div className="mt-4 h-2 rounded-full bg-border">
+                      <div
+                        aria-label={`${launch.company} launch progress`}
+                        aria-valuemax={100}
+                        aria-valuemin={0}
+                        aria-valuenow={launch.progress}
+                        className="mt-4 h-2 rounded-full bg-border"
+                        role="progressbar"
+                      >
                         <div
                           className="h-2 rounded-full bg-accent"
                           style={{ width: `${launch.progress}%` }}

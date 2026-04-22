@@ -33,12 +33,10 @@ export function OnboardingForm() {
   const [isComplete, setIsComplete] = useState(false);
 
   const errors = useMemo(() => validate(values), [values]);
-  const visibleErrors = Object.entries(errors).filter(
-    ([field, message]) => touched[field as FieldName] && message,
-  );
   const completedFields = Object.values(values).filter((value) => value.trim()).length;
   const currentStep = Math.min(completedFields, steps.length - 1);
   const hasErrors = Object.values(errors).some(Boolean);
+  const isSubmitDisabled = isLoading || (Object.values(touched).some(Boolean) && hasErrors);
 
   function updateField(field: FieldName, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -130,7 +128,7 @@ export function OnboardingForm() {
             {["1-3", "4-8", "9+"].map((size) => (
               <label
                 className={cn(
-                  "flex min-h-11 cursor-pointer items-center justify-center rounded-md border border-border bg-card px-3 text-sm font-semibold transition",
+                  "flex min-h-11 cursor-pointer items-center justify-center rounded-md border border-border bg-card px-3 text-sm font-semibold transition focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-accent",
                   values.teamSize === size && "border-accent bg-accent-soft text-accent-strong",
                 )}
                 key={size}
@@ -179,7 +177,7 @@ export function OnboardingForm() {
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
         <Button
           className="w-full sm:w-auto"
-          disabled={visibleErrors.length > 0}
+          disabled={isSubmitDisabled}
           isLoading={isLoading}
           type="submit"
         >

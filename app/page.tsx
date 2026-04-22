@@ -1,4 +1,5 @@
 import { CtaSection } from "@/components/cta-section";
+import { DashboardPreview } from "@/components/dashboard-preview";
 import { FeatureCard } from "@/components/feature-card";
 import { HeroSection } from "@/components/hero-section";
 import { SiteFooter } from "@/components/site-footer";
@@ -48,6 +49,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <DashboardPreview />
       <CtaSection />
       <SiteFooter />
     </main>

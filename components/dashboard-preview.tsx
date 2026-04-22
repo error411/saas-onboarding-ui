@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { SectionIntro } from "@/components/section-intro";
 
 const stats = [
   { label: "Active launches", value: "12", detail: "+3 this week" },
@@ -27,18 +28,11 @@ export function DashboardPreview() {
     <section className="section-space" id="dashboard">
       <div className="container-page">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
-              Dashboard clarity
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl">
-              Know what needs attention before launch day.
-            </h2>
-            <p className="mt-5 text-base leading-7 text-muted md:text-lg md:leading-8">
-              Give implementation teams a concise view of progress, ownership,
-              and blockers without burying them in operational noise.
-            </p>
-          </div>
+          <SectionIntro
+            description="Give implementation teams a concise view of progress, ownership, and blockers without burying them in operational noise."
+            eyebrow="Dashboard clarity"
+            title="Know what needs attention before launch day."
+          />
 
           <div className="rounded-lg border border-border bg-card p-4 shadow-sm sm:p-5">
             <div className="grid gap-4 sm:grid-cols-3">
@@ -62,9 +56,7 @@ export function DashboardPreview() {
                     </h3>
                     <p className="mt-1 text-sm text-muted">Next customer milestones</p>
                   </div>
-                  <span className="rounded-full bg-accent-soft px-3 py-1 text-sm font-medium text-accent-strong">
-                    2 active
-                  </span>
+                  <Badge>2 active</Badge>
                 </div>
 
                 <div className="mt-5 space-y-4">
@@ -78,16 +70,11 @@ export function DashboardPreview() {
                           <p className="font-semibold text-foreground">{launch.company}</p>
                           <p className="mt-1 text-sm text-muted">Owner: {launch.owner}</p>
                         </div>
-                        <span
-                          className={cn(
-                            "w-fit rounded-full px-3 py-1 text-sm font-medium",
-                            launch.progress >= 70
-                              ? "bg-accent-soft text-accent-strong"
-                              : "bg-background text-muted",
-                          )}
+                        <Badge
+                          variant={launch.progress >= 70 ? "accent" : "muted"}
                         >
                           {launch.status}
-                        </span>
+                        </Badge>
                       </div>
                       <div className="mt-4 h-2 rounded-full bg-border">
                         <div

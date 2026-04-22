@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -80,9 +81,7 @@ export function OnboardingForm() {
             Create your first journey
           </h3>
         </div>
-        <span className="rounded-full bg-accent-soft px-3 py-1 text-sm font-medium text-accent-strong">
-          Step {currentStep + 1}
-        </span>
+        <Badge>Step {currentStep + 1}</Badge>
       </div>
 
       <ol className="mt-6 grid grid-cols-3 gap-2" aria-label="Onboarding progress">

@@ -1,20 +1,20 @@
 import { ButtonLink } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { SectionIntro } from "@/components/section-intro";
 
 export function HeroSection() {
   return (
     <section className="section-space pt-12 md:pt-20">
       <div className="container-page grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
-            Customer onboarding
-          </p>
-          <h1 className="mt-4 max-w-3xl text-5xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Launch every customer with a clear, shared plan.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted md:text-xl md:leading-9">
-            Coordinate setup tasks, owner handoffs, and launch milestones in a
-            workspace that keeps teams aligned from kickoff to go-live.
-          </p>
+          <SectionIntro
+            className="max-w-3xl"
+            description="Coordinate setup tasks, owner handoffs, and launch milestones in a workspace that keeps teams aligned from kickoff to go-live."
+            eyebrow="Customer onboarding"
+            headingLevel="h1"
+            size="hero"
+            title="Launch every customer with a clear, shared plan."
+          />
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#start">Create a plan</ButtonLink>
             <ButtonLink href="#features" variant="secondary">
@@ -32,9 +32,7 @@ export function HeroSection() {
                 <p className="text-sm font-semibold text-foreground">Workspace setup</p>
                 <p className="mt-1 text-sm text-muted">3 of 5 tasks complete</p>
               </div>
-              <span className="rounded-full bg-accent-soft px-3 py-1 text-sm font-medium text-accent-strong">
-                60%
-              </span>
+              <Badge>60%</Badge>
             </div>
             <div className="mt-6 space-y-5">
               {["Invite team", "Connect data", "Define first workflow"].map(
